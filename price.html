@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <style>
+    	p { 
+    	    font-size:150%;
+    	}
+    </style>
+        <script>
+            function getOption() {
+            	var obj;
+                var blank_price;
+                var type;
+                var pieces;
+                var fixed = "NA";
+                var bottom ="NA";
+                var total;
+                
+                pieces = document.getElementById("pieces").value;
+                
+                blank_price = document.getElementById("blank_price").value;
+                
+                
+                obj = document.getElementById("size");
+                size = obj.options[obj.selectedIndex].text;
+                
+                obj = document.getElementById("type");
+                type = obj.options[obj.selectedIndex].text;
+                
+                if(size=="65 ml"){
+                	fixed = 9;
+                    bottom = "50 mm";
+                }
+                else if(size=="90 ml"){
+                	fixed = 9;
+                    bottom = "50 mm";
+                    if(pieces==""){
+                    	if(type=="khatima" || type=="century"){
+                    		pieces = 740;
+                    	}	
+                    }
+                    if(blank_price=="" || blank_price==0){
+                    	alert("Enter blank price");
+                    }else{
+                    	total = ((blank_price/pieces)*100)+fixed;
+                    }
+                }
+                else if(size=="100 ml"){
+                	fixed = 10;
+                    bottom = "57 mm";
+                    if(pieces==""){
+                        if(type=="khatima" || type=="century"){
+                            pieces = 690;
+                        }
+                        else if(type=="spectra 180gsm"){
+                            pieces = 532;
+                        }
+                    }
+                    if(blank_price=="" || blank_price==0){
+                    	alert("Enter blank price");
+                    }else{
+                    	total = ((blank_price/pieces)*100)+fixed;
+                    }
+                }
+                else if(size=="130 ml"){
+                	fixed = 10;
+                    bottom = "57 mm";
+                    if(pieces==""){
+                        if(type=="khatima" || type=="century"){
+                            pieces = 600;
+                        }
+                        else if(type=="spectra 180gsm"){
+                            pieces = 460;
+                        }
+                    }
+                    if(blank_price=="" || blank_price==0){
+                    	alert("Enter blank price");
+                    }else{
+                    	total = ((blank_price/pieces)*100)+fixed;
+                    }
+                }
+                else if(size=="150 ml"){
+                	fixed = 11;
+                    bottom = "65 mm";
+                    if(pieces==""){
+                        if(type=="khatima" || type=="century"){
+                          pieces = 500;
+                        }
+                        else if(type=="spectra 180gsm"){
+                          pieces = 400;
+                        }
+                     }
+                     if(blank_price=="" || blank_price==0){
+                    	alert("Enter blank price");
+                    }else{
+                    	total = ((blank_price/pieces)*100)+fixed;
+                    }
+                }
+                else if(size=="200 ml"){
+                	fixed = 12;
+                    bottom = "65 mm";
+                    if(pieces==""){
+                        if(type=="khatima" || type=="century"){
+                            pieces = 390;
+                        }
+                        else if(type=="spectra 180gsm"){
+                            pieces = 310;
+                        }
+                    }
+                    if(blank_price=="" || blank_price==0){
+                    	alert("Enter blank price");
+                    }else{
+                    	total = ((blank_price/pieces)*100)+fixed;
+                    }
+                }
+                else if(size=="250 ml"){
+                	fixed = 13;
+                    bottom = "65 mm";
+                    if(pieces==""){
+                        if(type=="spectra 180gsm"){
+                            pieces = 250;
+                        }
+                        else if(type=="spectra 225gsm"){
+                            pieces = 215;
+                        }
+                     }
+                     if(blank_price=="" || blank_price==0){
+                    	alert("Enter blank price");
+                    }else{
+                    	total = ((blank_price/pieces)*100)+fixed;
+                    }
+                }
+                else if(size=="330 ml"){
+                	fixed = 13;
+                    bottom = "65 mm";
+                }
+                
+                document.getElementById("fixed1").innerHTML=fixed;
+                document.getElementById("bottom1").innerHTML=bottom;
+                document.getElementById("pieces1").innerHTML = pieces;
+                document.getElementById("blank_price1").innerHTML = blank_price;
+                document.getElementById("size1").innerHTML=size;
+                document.getElementById("type1").innerHTML=type;
+                document.getElementById("total").innerHTML=total;
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+        	<p>Pieces : <input type="text" id="pieces" />
+        	<br><br>
+        	Blank Price : <input type="text" id="blank_price" />
+        	<br><br>
+            Size:
+            <select id="size">
+              <option>65 ml</option>
+              <option>90 ml</option>
+              <option>100 ml</option>
+              <option>130 ml</option>
+              <option>150 ml</option>
+              <option>200 ml</option>
+              <option>250 ml</option>
+              <option>330 ml</option>
+            </select>
+            <br><br>
+            Type:
+            <select id="type">
+              <option>khatima</option>
+              <option>century</option>
+              <option>spectra 180gsm</option>
+              <option>spectra 225gsm</option>
+            </select>
+            <br><br>
+            <input type="button" onclick="getOption()" value="Submit!">
+            </p>
+        </form>
+        <br><br><br>
+        <p>
+        Blank Price : Rs. <span id="blank_price1"></span><br>
+        Size : <span id="size1"></span><br>
+        Pieces : <span id="pieces1"></span><br>
+        Type : <span id="type1"></span><br>
+        Fixed price : <span id="fixed1"></span><br>
+        Bottom : <span id="bottom1"></span><br><br>
+        Total price : Rs. <span id="total"></span><br>
+        </p>
+    </body>
+</html>
