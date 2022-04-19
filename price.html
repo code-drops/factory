@@ -49,15 +49,15 @@
                 type = obj.options[obj.selectedIndex].text;
                 
                 if(size=="65 ml"){
-                	fixed = 10;
+                	fixed = to 10;
                     bottom = "50 mm";
                 }
                 else if(size=="90 ml"){
-                	fixed = 9.5;
+                	fixed = 10.5;
                     bottom = "50 mm";
                     if(pieces==""){
                     	if(type=="khatima" || type=="century"){
-                    		pieces = 740;
+                    		pieces = 750;
                     	}	
                     }
                     if(blank_price=="" || blank_price==0){
@@ -67,11 +67,11 @@
                     }
                 }
                 else if(size=="100 ml"){
-                	fixed = 10.5;
+                	fixed = 11.5;
                     bottom = "57 mm";
                     if(pieces==""){
                         if(type=="khatima" || type=="century"){
-                            pieces = 690;
+                            pieces = 670;
                         }
                         else if(type=="spectra 180gsm"){
                             pieces = 532;
@@ -84,11 +84,11 @@
                     }
                 }
                 else if(size=="130 ml"){
-                	fixed = 10.5;
+                	fixed = 11.5;
                     bottom = "57 mm";
                     if(pieces==""){
                         if(type=="khatima" || type=="century"){
-                            pieces = 600;
+                            pieces = 580;
                         }
                         else if(type=="spectra 180gsm"){
                             pieces = 460;
@@ -101,14 +101,14 @@
                     }
                 }
                 else if(size=="150 ml"){
-                	fixed = 11.5;
+                	fixed = 12.5;
                     bottom = "65 mm";
                     if(pieces==""){
                         if(type=="khatima" || type=="century"){
                           pieces = 500;
                         }
                         else if(type=="spectra 180gsm"){
-                          pieces = 400;
+                          pieces = 390;
                         }
                      }
                      if(blank_price=="" || blank_price==0){
@@ -118,7 +118,7 @@
                     }
                 }
                 else if(size=="200 ml"){
-                	fixed = 12.5;
+                	fixed = 13.5;
                     bottom = "65 mm";
                     if(pieces==""){
                         if(type=="khatima" || type=="century"){
@@ -135,7 +135,7 @@
                     }
                 }
                 else if(size=="250 ml"){
-                	fixed = 13.5;
+                	fixed = 14.5;
                     bottom = "65 mm";
                     if(pieces==""){
                         if(type=="spectra 180gsm"){
@@ -152,8 +152,21 @@
                     }
                 }
                 else if(size=="330 ml"){
-                	fixed = 13.5;
+                	fixed = 14.5;
                     bottom = "65 mm";
+if(pieces==""){
+                        if(type=="spectra 180gsm"){
+                            pieces = 180;
+                        }
+                        else if(type=="spectra 225gsm"){
+                            pieces = 160;
+                        }
+                     }
+                     if(blank_price=="" || blank_price==0){
+                    	alert("Enter blank price");
+                    }else{
+                    	total = ((blank_price/pieces)*100)+fixed;
+                    }
                 }
                 
                 document.getElementById("fixed1").innerHTML=fixed;
